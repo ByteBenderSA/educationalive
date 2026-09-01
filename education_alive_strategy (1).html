@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Education Alive — Turnaround Strategy 2025–2027</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap');
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #0f0f0e; --ink-2: #3a3a37; --ink-3: #6b6b66; --ink-4: #9e9e98;
+    --surface: #faf9f7; --card: #ffffff; --rule: #e4e2db;
+    --accent: #1B4F3A; --accent-light: #e8f2ec; --accent-mid: #2d7a5a;
+    --fire: #c44a1f; --fire-light: #fdf0eb;
+    --gold: #a0680a; --gold-light: #fef6e4;
+    --purple: #4a2f7a; --purple-light: #f0eafa;
+    --blue: #1a4a7a; --blue-light: #e8f0fa;
+  }
+  body { font-family: 'Inter', sans-serif; background: var(--surface); color: var(--ink); font-size: 15px; line-height: 1.7; max-width: 900px; margin: 0 auto; padding: 3rem 2rem 6rem; }
+
+  .report-header { border-bottom: 1px solid var(--rule); padding-bottom: 2.5rem; margin-bottom: 3rem; }
+  .report-eyebrow { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 1rem; }
+  .report-title { font-family: 'DM Serif Display', serif; font-size: 2.8rem; line-height: 1.15; color: var(--ink); margin-bottom: 0.75rem; }
+  .report-title em { font-style: italic; color: var(--accent); }
+  .report-subtitle { font-size: 1.05rem; color: var(--ink-2); max-width: 640px; line-height: 1.6; }
+  .report-meta { display: flex; gap: 2rem; margin-top: 1.5rem; flex-wrap: wrap; }
+  .report-meta-item { display: flex; flex-direction: column; gap: 2px; }
+  .meta-label { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-4); }
+  .meta-value { font-size: 14px; font-weight: 500; color: var(--ink); }
+
+  .crisis-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 10px; overflow: hidden; margin-bottom: 3rem; }
+  .crisis-cell { background: var(--card); padding: 1.25rem 1.5rem; }
+  .crisis-num { font-family: 'DM Serif Display', serif; font-size: 2.2rem; color: var(--fire); line-height: 1; margin-bottom: 4px; }
+  .crisis-desc { font-size: 12.5px; color: var(--ink-3); line-height: 1.4; }
+  .crisis-source { font-size: 10.5px; color: var(--ink-4); margin-top: 6px; font-style: italic; }
+
+  .section { margin-bottom: 3.5rem; }
+  .section-eyebrow { font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; font-weight: 500; }
+  .section-title { font-family: 'DM Serif Display', serif; font-size: 1.65rem; line-height: 1.25; color: var(--ink); margin-bottom: 1.25rem; }
+  .prose { color: var(--ink-2); line-height: 1.75; margin-bottom: 1rem; }
+
+  .diagnosis-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+  @media (max-width: 600px) { .diagnosis-grid { grid-template-columns: 1fr; } }
+  .diag-card { background: var(--card); border: 1px solid var(--rule); border-radius: 10px; padding: 1.25rem; }
+  .diag-card.fire { border-left: 3px solid var(--fire); }
+  .diag-card.gold { border-left: 3px solid var(--gold); }
+  .diag-card-title { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 0.5rem; }
+  .diag-card-body { font-size: 13.5px; color: var(--ink-2); line-height: 1.6; }
+
+  .risk-table { width: 100%; border-collapse: collapse; margin-top: 1.25rem; font-size: 13.5px; }
+  .risk-table th { text-align: left; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); padding: 0.5rem 1rem; border-bottom: 1px solid var(--rule); }
+  .risk-table td { padding: 0.75rem 1rem; border-bottom: 0.5px solid var(--rule); color: var(--ink-2); vertical-align: top; line-height: 1.5; }
+  .risk-table tr:last-child td { border-bottom: none; }
+  .badge { display: inline-block; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 4px; }
+  .badge.critical { background: #fde8e0; color: #a33010; }
+  .badge.high { background: var(--gold-light); color: var(--gold); }
+  .badge.medium { background: var(--blue-light); color: var(--blue); }
+
+  .pillar { background: var(--card); border: 1px solid var(--rule); border-radius: 12px; overflow: hidden; margin-bottom: 1.5rem; }
+  .pillar-header { display: flex; align-items: center; gap: 1rem; padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--rule); }
+  .pillar-num { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'DM Serif Display', serif; font-size: 1.1rem; flex-shrink: 0; }
+  .pillar-num.green { background: var(--accent-light); color: var(--accent); }
+  .pillar-num.orange { background: var(--fire-light); color: var(--fire); }
+  .pillar-num.gold { background: var(--gold-light); color: var(--gold); }
+  .pillar-num.purple { background: var(--purple-light); color: var(--purple); }
+  .pillar-num.blue { background: var(--blue-light); color: var(--blue); }
+  .pillar-head-text { flex: 1; }
+  .pillar-name { font-weight: 600; font-size: 15px; color: var(--ink); line-height: 1.3; }
+  .pillar-tag { font-size: 11px; color: var(--ink-3); margin-top: 2px; }
+  .pillar-body { padding: 1.25rem 1.5rem; }
+  .pillar-desc { font-size: 14px; color: var(--ink-2); line-height: 1.65; margin-bottom: 1rem; }
+  .action-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .action-list li { display: flex; gap: 0.65rem; font-size: 13.5px; color: var(--ink-2); line-height: 1.5; }
+  .action-list li::before { content: '→'; color: var(--accent); flex-shrink: 0; margin-top: 1px; font-size: 13px; }
+
+  .timeline { margin-top: 1.5rem; }
+  .timeline-phase { display: grid; grid-template-columns: 120px 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+  .timeline-label { text-align: right; padding-top: 2px; }
+  .phase-period { font-size: 11.5px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; }
+  .phase-name { font-size: 12px; color: var(--ink-3); margin-top: 2px; }
+  .timeline-content { border-left: 2px solid var(--rule); padding-left: 1.25rem; position: relative; }
+  .timeline-content::before { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); position: absolute; left: -6px; top: 4px; }
+  .timeline-tasks { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
+  .timeline-tasks li { font-size: 13.5px; color: var(--ink-2); line-height: 1.5; padding-left: 1rem; position: relative; }
+  .timeline-tasks li::before { content: '·'; position: absolute; left: 0; color: var(--ink-4); }
+
+  .callout { border-radius: 10px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; font-size: 14px; line-height: 1.65; }
+  .callout.warning { background: var(--fire-light); border: 1px solid #f0bfb0; color: #7a2f18; }
+  .callout.insight { background: var(--accent-light); border: 1px solid #b0d5c2; color: var(--accent); }
+  .callout.info { background: var(--gold-light); border: 1px solid #f5d8a0; color: var(--gold); }
+  .callout strong { font-weight: 600; }
+
+  .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-top: 1.25rem; }
+  .metric-card { background: var(--card); border: 1px solid var(--rule); border-radius: 10px; padding: 1.1rem 1.25rem; text-align: center; }
+  .metric-target { font-family: 'DM Serif Display', serif; font-size: 2rem; color: var(--accent); line-height: 1; }
+  .metric-unit { font-size: 14px; color: var(--ink-3); margin-top: 4px; }
+  .metric-by { font-size: 11px; color: var(--ink-4); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.07em; }
+
+  .insight-quote { font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.25rem; color: var(--ink-2); line-height: 1.5; border-left: 3px solid var(--accent); padding-left: 1.25rem; margin: 2rem 0; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.25rem; }
+  @media (max-width: 580px) { .two-col { grid-template-columns: 1fr; } }
+  .stat-block { background: var(--card); border: 1px solid var(--rule); border-radius: 10px; padding: 1.1rem 1.25rem; }
+  .stat-block-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink-4); margin-bottom: 4px; }
+  .stat-block-value { font-size: 1rem; font-weight: 500; color: var(--ink); }
+  .stat-block-note { font-size: 12px; color: var(--ink-3); margin-top: 4px; line-height: 1.4; }
+
+  hr { border: none; border-top: 1px solid var(--rule); margin: 3rem 0; }
+  .report-footer { font-size: 12px; color: var(--ink-4); text-align: center; padding-top: 2rem; border-top: 1px solid var(--rule); }
+</style>
+</head>
+<body>
+
+<header class="report-header">
+  <p class="report-eyebrow">Strategic Turnaround Plan — Confidential</p>
+  <h1 class="report-title">Education Alive:<br><em>From Invisible to Inevitable</em></h1>
+  <p class="report-subtitle">A consolidated, ground-up strategy to reverse enrolment decline and establish Education Alive as the defining school for future-ready learners in Johannesburg's inner city — by December 2025 and beyond.</p>
+  <div class="report-meta">
+    <div class="report-meta-item"><span class="meta-label">Location</span><span class="meta-value">37 Harrison St, JHB CBD</span></div>
+    <div class="report-meta-item"><span class="meta-label">Grades</span><span class="meta-value">R to Grade 12</span></div>
+    <div class="report-meta-item"><span class="meta-label">Accreditation</span><span class="meta-value">UMALUSI · Applied Scholastics</span></div>
+    <div class="report-meta-item"><span class="meta-label">Stated capacity</span><span class="meta-value">2,000 learners</span></div>
+  </div>
+</header>
+
+<!-- VERIFIED SNAPSHOT -->
+<div class="crisis-grid">
+  <div class="crisis-cell">
+    <div class="crisis-num">751</div>
+    <div class="crisis-desc">Current learners — the school's own website figure, against a stated capacity of 2,000</div>
+    <div class="crisis-source">Source: educationalive.co.za (live, 2026)</div>
+  </div>
+  <div class="crisis-cell">
+    <div class="crisis-num">38%</div>
+    <div class="crisis-desc">Capacity utilisation — roughly 1,249 unfilled seats in a school built for 2,000</div>
+    <div class="crisis-source">Derived from live site + capacity figure</div>
+  </div>
+  <div class="crisis-cell">
+    <div class="crisis-num">95.2%</div>
+    <div class="crisis-desc">2024 matric pass rate — up from 91.9% in 2023. A genuine, under-marketed asset.</div>
+    <div class="crisis-source">Source: SchoolClick, DBE data 2024</div>
+  </div>
+  <div class="crisis-cell">
+    <div class="crisis-num">3.7/5</div>
+    <div class="crisis-desc">Public review score from 21 votes (A Better Place). Too thin to inspire trust in an undecided parent.</div>
+    <div class="crisis-source">Source: A Better Place, Indeed 2.8/5</div>
+  </div>
+</div>
+
+<!-- PART 1: DIAGNOSIS -->
+<div class="section">
+  <p class="section-eyebrow">Part I — Understanding the Problem</p>
+  <h2 class="section-title">What's actually happening, and why</h2>
+  <p class="prose">A site review of educationalive.co.za, combined with publicly available school data and parent reviews, reveals something important: Education Alive is not failing because its educational model is broken. A 95.2% matric pass rate in 2024, UMALUSI accreditation, Grade R to Grade 12 continuity, and an accessible CBD location are genuinely strong assets. The school is failing because it is telling its story in the wrong order, to the wrong audience, through the wrong channels — and its public-facing brand is creating friction before trust is established.</p>
+  <p class="prose">The inner-city Johannesburg private school market is deeply competitive. Research on Joburg CBD school choice shows learners coming from across the metro — Soweto, Germiston, Alex, inner city — predominantly black, upper-working-class and lower-middle-class families making a deliberate, emotionally significant decision. They are comparing schools online before they ever visit. And right now, Education Alive gives them almost nothing to compare — and a few things that actively push them away.</p>
+
+  <div class="diagnosis-grid">
+    <div class="diag-card fire">
+      <div class="diag-card-title">🔴 Brand leads with the wrong thing</div>
+      <div class="diag-card-body">The website's first detailed content is L. Ron Hubbard, Study Technology, "Absence of Mass," "Misunderstood Words." These are methodology terms, not parent benefits. A first-time visitor's reaction is "What is this?" before they reach any reason to stay. The school's headline — "Where Every Child Learns How to Learn" — is genuinely strong and then immediately undermined.</div>
+    </div>
+    <div class="diag-card fire">
+      <div class="diag-card-title">🔴 Website sends trust-breaking signals</div>
+      <div class="diag-card-body">The homepage displays "18 Current Students" in one counter while the same page states 751 learners. This appears to be a technical bug, but prospective parents cannot know that. In a high-trust purchase, contradictory numbers read as poor governance. Additionally, the admissions narrative mentions paying over R600,000 in monthly rent — parents read this as financial instability, not transparency.</div>
+    </div>
+    <div class="diag-card fire">
+      <div class="diag-card-title">🔴 No social media discovery funnel</div>
+      <div class="diag-card-body">85% of parents and learners research schools on social media before visiting. Education Alive has virtually no active social presence, no video content, no parent testimonials on public platforms, and weak search optimisation. The school is invisible at exactly the moment parents are making decisions.</div>
+    </div>
+    <div class="diag-card fire">
+      <div class="diag-card-title">🔴 Operations are still manual</div>
+      <div class="diag-card-body">Paper-based letters, payment management, and communications signal to parents — before a word is spoken — that the school is behind the times. In a market where perception of modernity matters enormously, a handwritten fee invoice loses families to competitors who send digital statements and WhatsApp notifications.</div>
+    </div>
+    <div class="diag-card gold">
+      <div class="diag-card-title">🟡 Academic results are hidden, not owned</div>
+      <div class="diag-card-body">A 95.2% matric pass rate is a powerful proof point. It is not visible, not contextualised, and not on the homepage. Parents who want to know if this school produces results are left to find the data in obscure third-party databases. That's a missed opportunity of the first order.</div>
+    </div>
+    <div class="diag-card gold">
+      <div class="diag-card-title">🟡 IT/AI vision has no substance yet</div>
+      <div class="diag-card-body">Announcing IT and AI subjects without genuine exposure, equipment, or trained teachers means the rollout will look performative. The DBE's coding and robotics curriculum is real, but most SA schools are barely implementing it — this is an open differentiation window, but it requires honest delivery before it's marketed.</div>
+    </div>
+  </div>
+
+  <div class="callout warning" style="margin-top: 1.5rem;">
+    <strong>The Scientology perception risk deserves a specific strategy.</strong> Education Alive explicitly links to L. Ron Hubbard and Applied Scholastics on its website. Applied Scholastics separately positions itself as secular and distinct from the Church of Scientology — however, the Church's own public materials associate both under the Scientology umbrella. The predictable parent search journey is: Education Alive → L. Ron Hubbard → Scientology. This isn't a reason to hide the methodology. Concealment creates a worse trust problem than transparency. The solution is sequencing: lead with outcomes, let the methodology be the explanation of how — not the first frame through which the school is understood.
+  </div>
+</div>
+
+<!-- VERIFIED DATA TABLE -->
+<div class="section">
+  <p class="section-eyebrow">Part I Continued — What the Data Shows</p>
+  <h2 class="section-title">The verified picture</h2>
+  <p class="prose">These figures are drawn from publicly available sources — the school's own website, third-party school databases, and the Department of Basic Education's reported results. They are directional, not audited.</p>
+
+  <div class="two-col">
+    <div class="stat-block">
+      <div class="stat-block-label">Enrolment trend (SchoolClick / DBE)</div>
+      <div class="stat-block-value">1,267 learners in 2021 → ~1,045 in 2022 → ~751 currently</div>
+      <div class="stat-block-note">222 families reportedly left in 2022. Only 54 new registrations logged in 2023 data. The current live site states 751. Direction is clear even if precise year-on-year figures vary by source.</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-block-label">Matric performance</div>
+      <div class="stat-block-value">95.2% pass rate (2024), up from 91.9% (2023), 97.8% (2022)</div>
+      <div class="stat-block-note">131 Grade 12 learners in 2021 → 92 in 2022 → 74 in 2023. The class is shrinking as enrolment contracts but pass rates remain competitive. This is a story the school is not telling.</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-block-label">Public review profile</div>
+      <div class="stat-block-value">3.7/5 — A Better Place (21 votes) · 2.8/5 — Indeed (4 reviews)</div>
+      <div class="stat-block-note">Small samples. The Indeed score reflects internal staff sentiment — low management scores (2.5/5) are consistent with the teacher retention data and the single student review calling teachers "lazy." Signals worth taking seriously, not dismissing as noise.</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-block-label">Capacity utilisation</div>
+      <div class="stat-block-value">751 of 2,000 — approximately 38% full</div>
+      <div class="stat-block-note">"Enrol anytime" is the school's current positioning, which is a genuine flexibility advantage — but without careful framing it reads as "we have space because others left." The same fact can be a strength or a warning sign depending on how it's presented.</div>
+    </div>
+  </div>
+</div>
+
+<div class="insight-quote">
+  "The school has a potentially defensible proposition. Its public identity is currently dominated by a methodology that many mainstream parents may not understand — and may associate with Scientology before they understand anything else."
+</div>
+
+<hr>
+
+<!-- PRIORITY RISKS TABLE -->
+<div class="section">
+  <p class="section-eyebrow">Part II — Risk Register</p>
+  <h2 class="section-title">Ranked threats to fix first</h2>
+  <p class="prose">Not all problems are equal. These are ranked by damage to enrolment — the ones at the top are actively costing the school families right now, before any marketing begins.</p>
+
+  <table class="risk-table">
+    <thead>
+      <tr>
+        <th>Risk</th>
+        <th>Severity</th>
+        <th>Why it matters</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>L. Ron Hubbard / Scientology association presented before outcomes</td>
+        <td><span class="badge critical">Critical</span></td>
+        <td>Causes parents to self-exclude before engaging with the actual school. A sequencing fix, not a concealment fix.</td>
+      </tr>
+      <tr>
+        <td>Academic results not visible on the website</td>
+        <td><span class="badge critical">Critical</span></td>
+        <td>High-trust purchase requires visible proof. 95.2% pass rate is sitting in a third-party database while the homepage talks about methodology.</td>
+      </tr>
+      <tr>
+        <td>Contradictory student counter on the homepage</td>
+        <td><span class="badge critical">Critical</span></td>
+        <td>"18 students" vs "751 students" on the same page — first-time visitors notice this. Fix in 24 hours.</td>
+      </tr>
+      <tr>
+        <td>Financial-survival language in the admissions journey</td>
+        <td><span class="badge high">High</span></td>
+        <td>Mentioning R600,000+ monthly rent signals to parents that the school may be financially fragile. Remove from the conversion path entirely.</td>
+      </tr>
+      <tr>
+        <td>Limited and mediocre public review profile</td>
+        <td><span class="badge high">High</span></td>
+        <td>21 votes on A Better Place is not enough social proof for a school asking families to trust it with their children. The school needs to actively build this.</td>
+      </tr>
+      <tr>
+        <td>Technical methodology language before parent benefits</td>
+        <td><span class="badge high">High</span></td>
+        <td>"Absence of Mass," "Skipped Gradient," "Misunderstood Word" — these terms are jargon to a first-time parent. The benefits need to come before the explanation.</td>
+      </tr>
+      <tr>
+        <td>CBD and facilities perception gap</td>
+        <td><span class="badge high">High</span></td>
+        <td>Inner-city location raises questions about safety and learning environment. Visual proof — real photography of classrooms, teachers, learners — is non-negotiable.</td>
+      </tr>
+      <tr>
+        <td>No meaningful social media presence</td>
+        <td><span class="badge high">High</span></td>
+        <td>The school does not exist in the digital conversation where parents are making decisions. Every day without content is a day competitors gain ground.</td>
+      </tr>
+      <tr>
+        <td>Staff retention and internal culture</td>
+        <td><span class="badge medium">Medium–High</span></td>
+        <td>14 teaching staff lost from 2021–2023. Low management scores internally. Brand repair cannot outrun a poor learner experience.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<hr>
+
+<!-- PART 3: THE FIVE PILLARS -->
+<div class="section">
+  <p class="section-eyebrow">Part III — The Strategy</p>
+  <h2 class="section-title">Six pillars to turn this school around</h2>
+  <p class="prose">The strategy runs on two simultaneous tracks: fixing what's broken on the inside (operations, trust signals, culture) and building what's missing on the outside (brand story, social media, community funnel). Both must move at the same time. Internal fixes give you something worth marketing. External marketing brings people to something worth staying for.</p>
+  <p class="prose">A new pillar — brand and website repair — is added as Pillar 0. It must happen before anything else, because every piece of marketing will send parents to the website, and right now the website is doing active damage.</p>
+</div>
+
+<!-- PILLAR 0 -->
+<div class="pillar">
+  <div class="pillar-header">
+    <div class="pillar-num orange">0</div>
+    <div class="pillar-head-text">
+      <div class="pillar-name">Fix the website and brand story — immediately</div>
+      <div class="pillar-tag">Priority Zero · Must complete before any marketing spend</div>
+    </div>
+  </div>
+  <div class="pillar-body">
+    <div class="pillar-desc">
+      The website is the school's most visited asset and currently its most damaging one. Before any social media campaign, open day, or paid advertising, these fixes must be live. Each one is removing active friction from the parent journey.
+    </div>
+    <ul class="action-list">
+      <li><strong>Fix the student counter bug immediately:</strong> The "18 Current Students" counter contradicts the "751 students" figure on the same page. This is likely a site widget bug — identify it and remove or correct it today. This is the single fastest credibility repair available.</li>
+      <li><strong>Resequence the homepage story:</strong> The current order is: name → methodology → L. Ron Hubbard. The new order should be: outcomes → affordability → Grade R–12 continuity → how we achieve this (methodology). Study Technology becomes the "how" — not the "who." The school's own headline ("Where Every Child Learns How to Learn") is strong; lead with it and support it with evidence.</li>
+      <li><strong>Build a live outcomes dashboard:</strong> Dedicate a prominent homepage section or standalone page to matric results: 95.2% pass rate (2024), year-on-year track record, Bachelor pass rate, subject averages where available, and university destinations. This is the strongest trust signal the school has and it is currently invisible.</li>
+      <li><strong>Translate the methodology into parent language:</strong> Keep Study Technology on the site — transparency is correct. But replace "Absence of Mass," "Skipped Gradient," and "Misunderstood Word" with plain descriptions of what these mean for a child's learning. A parent reading "we make sure your child actually understands before we move on" will connect instantly. The term "Misunderstood Word" is an unnecessary barrier.</li>
+      <li><strong>Remove financial-survival language from the conversion path:</strong> The R600,000 monthly rent reference is well-intentioned transparency that reads as institutional fragility. Replace it with value-for-money messaging: what a family receives, what the fees cover, and what distinguishes Education Alive's education from free public alternatives.</li>
+      <li><strong>Reframe "enrol anytime" as a feature, not a symptom:</strong> "Enrol anytime" is a genuine advantage for transfer learners and mid-year movers. Frame it explicitly as a deliberate, transfer-friendly admissions policy with a clear onboarding process — not as spare capacity.</li>
+      <li><strong>Standardise all public-facing data:</strong> Ensure the website, Google Business Profile, SchoolClick, and social bios all show the same address, grades, fees, and contact details. Conflicting information across third-party sites is an avoidable trust problem that compounds over time.</li>
+      <li><strong>Commission real photography of the campus:</strong> The facilities perception gap is real. Professional photographs of classrooms, teacher-learner interactions, break spaces, and the actual learning environment — posted on the website and social media — close this gap faster than any written description.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- PILLAR 1 -->
+<div class="pillar">
+  <div class="pillar-header">
+    <div class="pillar-num green">1</div>
+    <div class="pillar-head-text">
+      <div class="pillar-name">Digitise operations — first, fast, completely</div>
+      <div class="pillar-tag">Internal Infrastructure · September – November 2025</div>
+    </div>
+  </div>
+  <div class="pillar-body">
+    <div class="pillar-desc">
+      The fastest credibility gain available — beyond the website fixes. A school that runs digitally signals to parents before a word is spoken that it is progressive and professional. This is also how the school stops losing money to uncollected fees and poor communication.
+    </div>
+    <ul class="action-list">
+      <li><strong>School management system:</strong> Deploy a South African-built system immediately. MyEncore (from R50/learner/year, SASAMS-integrated) or Rise School Management are purpose-built for this market. Both handle fees, attendance, reports, and parent communication digitally. 90% reduction in payment-chasing admin is achievable in weeks.</li>
+      <li><strong>Parent communication app:</strong> Automated WhatsApp or in-app notifications replace paper letters. Fee statements, results, school announcements — sent digitally. Parents who feel informed and respected don't leave quietly.</li>
+      <li><strong>Online fee payment:</strong> Integrate Ozow, Netcash, or card payments. Parents should be able to pay from their phone at midnight if they want to. Manual payment collection is costing the school fees it's never collecting — and signalling that the school doesn't trust modern systems.</li>
+      <li><strong>Digital enrollment with 24-hour follow-up:</strong> A live online application form linked from social media bios, Google Business Profile, and WhatsApp. Critically: every inquiry must be followed up within 24 hours by a human being. Research shows that inquiry-to-application conversion rates vary from 10% to 35% across private schools — the difference is almost entirely nurturing speed.</li>
+      <li><strong>Google Business Profile — claim and complete:</strong> Add photos, accurate hours, website link, phone number. Activate Google reviews from current parents. This is free visibility in local search results and the first thing parents see when they search "private school Johannesburg CBD."</li>
+      <li><strong>Build the review profile deliberately:</strong> The current 21-vote profile on A Better Place is not enough social proof. After digitising operations and improving the parent experience, systematically ask satisfied parents for Google and A Better Place reviews. Ten authentic 5-star reviews with real names will change how the school appears to a prospective family more than any ad.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- PILLAR 2 -->
+<div class="pillar">
+  <div class="pillar-header">
+    <div class="pillar-num orange">2</div>
+    <div class="pillar-head-text">
+      <div class="pillar-name">Build a social media engine — not a presence, an engine</div>
+      <div class="pillar-tag">External Visibility · October 2025 onwards, in perpetuity</div>
+    </div>
+  </div>
+  <div class="pillar-body">
+    <div class="pillar-desc">
+      There is a difference between having a Facebook page and having a content machine. Education Alive needs the latter. The goal is not follower counts — it's family inquiries. Every piece of content should answer a question a parent is already asking, or make a family feel something about what it would mean for their child to attend.
+    </div>
+
+    <div class="callout insight">
+      <strong>The platform hierarchy for this audience:</strong> Facebook is where Joburg parents (25–45) make school decisions. WhatsApp is where they share recommendations. TikTok and Instagram Reels are where learners influence parents. YouTube Shorts build long-term search authority. Start with Facebook + WhatsApp, add TikTok within 60 days. Don't spread thin — one platform done well beats five platforms done poorly.
+    </div>
+
+    <ul class="action-list">
+      <li><strong>Lead every piece of content with outcomes, not methodology:</strong> Every video, every post, every caption should be framed around what it means for a child — not around Study Technology or Applied Scholastics. "Our Grade 10s are learning to read with genuine comprehension — here's how" beats "Study Technology's approach to the Skipped Gradient." Same content, different framing, radically different parent response.</li>
+      <li><strong>"Day in the life" videos:</strong> A Grade 10 learner showing their morning — classroom, study session, break — filmed on a phone. Raw, real, 60–90 seconds. Parents trust authenticity over polish. Post 3× per week minimum.</li>
+      <li><strong>Teacher spotlight series:</strong> One short video per teacher per term. "Why I chose Education Alive." This addresses the biggest hidden parent anxiety — who is teaching my child? — and simultaneously builds staff pride and connection to the school's identity.</li>
+      <li><strong>Own the 95.2% matric result:</strong> This deserves a dedicated campaign, not a single post. A series: the class of 2024 results, individual learner stories, university acceptance letters, destinations. Every matric result that drops is social content that validates the school's core promise. Deploy it the moment DBE results are published — hours, not days.</li>
+      <li><strong>Parent testimonial videos:</strong> Specifically seek out parents who switched from other schools. "What made us choose Education Alive over the alternatives." Five parents filmed, one posted per week for five weeks, reshared in WhatsApp community groups. These are the school's most persuasive sales asset.</li>
+      <li><strong>The IT/AI content hook:</strong> Even before the subjects fully launch, build anticipation. "What we're building for our learners." A teacher explaining why coding skills matter in 2026. A learner using an AI tool in a lesson. Visibility before delivery creates demand and drives inquiries from exactly the right parents.</li>
+      <li><strong>Open Day countdown series:</strong> A two-week content countdown to every open day. "5 things you didn't know about Education Alive," "What a Grade 8 first day looks like here," "How to apply." This is how open days get filled — not a single post the week before.</li>
+    </ul>
+
+    <div class="callout warning" style="margin-top:1rem;">
+      <strong>The CPC lesson:</strong> Christian Progressive College built ~3 million TikTok followers through learner performance content — and by 2026 faced a Gauteng government investigation for allegedly requiring learners to produce content to "work off" bursaries. The lesson is not to copy CPC. It's that viral visibility is achievable without exploitation. Education Alive needs content that is equally compelling but ethically grounded — always parent-approved, learner-consented, and school-led.
+    </div>
+  </div>
+</div>
+
+<!-- PILLAR 3 -->
+<div class="pillar">
+  <div class="pillar-header">
+    <div class="pillar-num gold">3</div>
+    <div class="pillar-head-text">
+      <div class="pillar-name">Become the CBD's IT and AI school — genuinely</div>
+      <div class="pillar-tag">Differentiation Engine · November 2025 – June 2026</div>
+    </div>
+  </div>
+  <div class="pillar-body">
+    <div class="pillar-desc">
+      The opportunity here is enormous. The DBE gazetted coding and robotics for Grades R–9 in 2024. Most SA schools are still teaching basic CAT — Word, Excel, PowerPoint. The parents moving their children into private schools are the black middle class who understand that the real skills gap is in AI literacy, coding, and digital creation. Education Alive can claim this position in the Joburg CBD market — but only if it delivers before it markets.
+    </div>
+
+    <div class="callout info">
+      <strong>The positioning:</strong> "The school that teaches children to build things — not just use things." This is currently uncrowded in the Joburg CBD market and directly speaks to the aspirations of the upwardly mobile parent segment that is Education Alive's most valuable recruitment target.
+    </div>
+
+    <ul class="action-list">
+      <li><strong>Honest audit before any announcement:</strong> Before publishing anything about IT or AI, complete an internal audit of current hardware, teacher skills, and bandwidth. A promise that can't be kept destroys school reputation faster than silence. Know what you actually have and what you can realistically deliver by January 2026.</li>
+      <li><strong>Start with what is immediately deliverable:</strong> A weekly coding club using free tools (Scratch, Code.org, Python Turtle) is real and deliverable within weeks. A "Digital Creators" class where learners produce the school's social media content teaches genuine digital skills and generates marketing material simultaneously.</li>
+      <li><strong>Partner with a coding NGO or EdTech provider:</strong> Contact Fundisa for Code, Umuzi, or WeThinkCode_ for free or subsidised training and school partnership programmes. Several specifically target under-resourced private schools. This closes the teacher capacity gap without a long hiring cycle.</li>
+      <li><strong>Invest in one properly equipped computer lab:</strong> 20 usable computers, reliable fibre internet. This is non-negotiable infrastructure. The physical lab is also a visual backdrop for photography and video that constantly communicates capability to prospective parents — before they even enquire.</li>
+      <li><strong>Quarterly "AI Explorers" showcase:</strong> Once per term, hold a public event where learners present what they've built. Invite parents. Film it. Post it. This is a learning event and a marketing asset simultaneously — and the kind of proof point that makes the IT/AI positioning real rather than aspirational.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- PILLAR 4 -->
+<div class="pillar">
+  <div class="pillar-header">
+    <div class="pillar-num purple">4</div>
+    <div class="pillar-head-text">
+      <div class="pillar-name">Build a community referral machine</div>
+      <div class="pillar-tag">Word-of-Mouth Activation · October 2025 – Ongoing</div>
+    </div>
+  </div>
+  <div class="pillar-body">
+    <div class="pillar-desc">
+      In the inner-city school market, referrals are still the dominant enrolment pathway. Families travel from Soweto, Kensington, and Alex to attend CBD private schools — because someone they trusted recommended it. Education Alive's current families are an untapped resource: they're enrolled, they have networks, and if they're happy with what the school is becoming, they will talk.
+    </div>
+    <ul class="action-list">
+      <li><strong>Sibling and referral fee discount programme:</strong> Any current family that refers a new learner who enrols receives 10–15% off next term's fees. Any new family that arrives through a referral gets 5% off their first term. Codify this, announce it at every parent meeting, and embed it in every digital communication. Word-of-mouth only becomes systematic when it's incentivised and tracked.</li>
+      <li><strong>Parent Ambassador squad:</strong> Identify 5–8 parents who are vocal advocates. Give them a formal title ("EA Parent Champions"), invite them to events early, equip them with talking points and shareable content. They become the school's street team in WhatsApp groups, church communities, and workplace conversations — the places where school decisions are actually made.</li>
+      <li><strong>Feeder school partnerships:</strong> Identify 3–5 ECD centres and Grade R/1 feeding schools in the inner city radius. Visit them. Offer free workshops for their learners. Ask to be on their "recommended schools" list. A pipeline from Grade R is a pipeline for the next decade.</li>
+      <li><strong>Church and community organisation outreach:</strong> The inner-city community is deeply connected through faith institutions, stokvels, and community organisations. Offer a once-off "Future Ready" talk — free, no sales pitch — at local churches or community halls. Be present, be known, be trusted before the sale.</li>
+      <li><strong>Open Days — completely redesigned:</strong> Not a formal tour. A real experience. Parents watch a live lesson. Learners present something they've created. There's refreshments, music, community. Every open day should feel like a preview of being part of something special. Film the entire day. Post the highlights within 24 hours. This content then becomes the next open day's promotion.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- PILLAR 5 -->
+<div class="pillar">
+  <div class="pillar-header">
+    <div class="pillar-num blue">5</div>
+    <div class="pillar-head-text">
+      <div class="pillar-name">Fix the inside — culture, staff, learner experience</div>
+      <div class="pillar-tag">Internal Foundation · September 2025 – Ongoing</div>
+    </div>
+  </div>
+  <div class="pillar-body">
+    <div class="pillar-desc">
+      The available student review for Education Alive describes teachers as "lazy" and making learners "bored." The Indeed staff score sits at 2.8/5 with management at 2.5/5. Fourteen teaching staff left in two years. No marketing strategy can outrun a poor learner experience. The inside must match what's being sold on the outside — and right now it doesn't.
+    </div>
+    <ul class="action-list">
+      <li><strong>Understand why teachers are leaving before trying to retain them:</strong> Conduct candid exit conversations or anonymous surveys. Teacher flight is typically workload, pay, management culture, or mission misalignment. Each requires a different fix. Retaining the wrong people is as damaging as losing the right ones.</li>
+      <li><strong>Reconnect staff to the mission:</strong> Research on school turnarounds consistently shows that culture recovery precedes performance recovery. Staff who believe in what they're building teach differently. A full-day staff retreat — not a training session, a genuine conversation about what Education Alive can become — is the first investment in this.</li>
+      <li><strong>Define the school's identity beyond "Applied Scholastics":</strong> Study Technology is a methodology, not an identity. The school needs a clear, compelling answer to: "What kind of learner does Education Alive produce?" and "What does a family get here that they cannot get anywhere else?" This answer should be on every surface — social bio, website homepage, welcome brochure — and staff should be able to say it in one sentence.</li>
+      <li><strong>Audit and fix the learner experience:</strong> Clean, bright, maintained spaces. Consistent uniform enforcement. A visible, communicated code of conduct. Small things signal whether leadership cares. Parents notice before any sales pitch begins.</li>
+      <li><strong>Celebrate learner wins publicly and loudly:</strong> Every matric passer, every achievement, every creative win deserves public recognition — in person, on the website, and on social media. A culture of celebration builds school pride. School pride is contagious. Parents who see their child celebrated tell other parents.</li>
+    </ul>
+  </div>
+</div>
+
+<hr>
+
+<!-- TIMELINE -->
+<div class="section">
+  <p class="section-eyebrow">Part IV — Execution</p>
+  <h2 class="section-title">What happens when</h2>
+  <p class="prose">This strategy must move fast. Enrolment decisions for 2026 are largely made between October and December 2025. Pillar 0 — the website — must be fixed before any external marketing begins, because every campaign will send parents to a site that is currently doing active damage.</p>
+
+  <div class="timeline">
+    <div class="timeline-phase">
+      <div class="timeline-label">
+        <div class="phase-period">Sep — Week 1</div>
+        <div class="phase-name">Emergency fixes</div>
+      </div>
+      <div class="timeline-content">
+        <ul class="timeline-tasks">
+          <li>Fix the student counter bug on the homepage — within 48 hours</li>
+          <li>Remove financial-survival language (rent costs) from the admissions journey</li>
+          <li>Add a matric results section to the website — 2022, 2023, 2024 pass rates, prominently placed</li>
+          <li>Claim and fully complete Google Business Profile — photos, hours, contact details</li>
+          <li>Standardise address, grades, fees across all public directories</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline-phase">
+      <div class="timeline-label">
+        <div class="phase-period">Sep – Oct</div>
+        <div class="phase-name">Foundations</div>
+      </div>
+      <div class="timeline-content">
+        <ul class="timeline-tasks">
+          <li>Select and deploy school management software (MyEncore / Rise)</li>
+          <li>Set up Facebook Page, TikTok, Instagram — fully branded and ready to post</li>
+          <li>Film first 5 content pieces: campus tour, 2 teacher spotlights, 1 parent testimonial, 1 learner day-in-the-life</li>
+          <li>Launch online application form linked from all social bios and the website</li>
+          <li>Full staff culture session — set the turnaround narrative internally before marketing externally</li>
+          <li>Establish parent ambassador group (6 founding members)</li>
+          <li>Resequence the website homepage: outcomes → affordability → methodology</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline-phase">
+      <div class="timeline-label">
+        <div class="phase-period">Oct – Nov</div>
+        <div class="phase-name">Activation</div>
+      </div>
+      <div class="timeline-content">
+        <ul class="timeline-tasks">
+          <li>3 posts per week minimum on Facebook + TikTok — maintained without exception</li>
+          <li>Host first redesigned Open Day — film and post within 24 hours</li>
+          <li>Launch sibling and referral fee discount programme — announce to all current families</li>
+          <li>Digital fee payment live — parents can pay via phone (Ozow / Netcash)</li>
+          <li>Visit 3 feeder ECD centres in the inner city radius</li>
+          <li>Coding Club launches — first cohort documented and posted on social</li>
+          <li>Community outreach talk at 1–2 local churches or community halls</li>
+          <li>Begin systematic review collection: ask 10 satisfied parents for Google reviews</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline-phase">
+      <div class="timeline-label">
+        <div class="phase-period">Nov – Dec</div>
+        <div class="phase-name">Enrolment push</div>
+      </div>
+      <div class="timeline-content">
+        <ul class="timeline-tasks">
+          <li>Every 2026 inquiry followed up within 24 hours by a human, not an auto-reply</li>
+          <li>Year-end showcase: learner achievements, IT demo, parent celebration — filmed and posted</li>
+          <li>Targeted Facebook ads in 15km radius: "Enrol for 2026 — spaces available, enrol anytime"</li>
+          <li>Send professional, digital year-end report to all current families — branded, no paper</li>
+          <li>Prepare matric results content package — ready to post the moment DBE results drop in January</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline-phase">
+      <div class="timeline-label">
+        <div class="phase-period">Jan – Jun 2026</div>
+        <div class="phase-name">Build the proof</div>
+      </div>
+      <div class="timeline-content">
+        <ul class="timeline-tasks">
+          <li>Deploy matric results campaign the day results are published — hours, not days</li>
+          <li>IT/AI class launches — document every lesson, every "first," every learner milestone</li>
+          <li>Host first "AI Explorers" public showcase for parents — filmed and shared</li>
+          <li>Social media cadence maintained: 3× weekly, building toward 2,000+ Facebook followers by June</li>
+          <li>Referral programme audit: how many new enrolments came through referrals?</li>
+          <li>Measure enrolment vs. same period 2025 — target: +30% new learner inquiries</li>
+          <li>At least 2 feeder school partnerships formalised</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- SUCCESS METRICS -->
+<div class="section">
+  <p class="section-eyebrow">Part V — Measuring success</p>
+  <h2 class="section-title">What 1–2 year success looks like</h2>
+  <p class="prose">These targets are realistic given the verified starting point (751 learners, 38% capacity utilisation, minimal digital presence) and the strategy above. Each metric is tied to a specific pillar — the school should track all of them, not just enrolment.</p>
+
+  <div class="metrics-grid">
+    <div class="metric-card">
+      <div class="metric-target">+100</div>
+      <div class="metric-unit">Net new learners</div>
+      <div class="metric-by">By end of 2026</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-target">50%+</div>
+      <div class="metric-unit">Capacity utilisation</div>
+      <div class="metric-by">From current 38%</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-target">4.2+</div>
+      <div class="metric-unit">Public review score</div>
+      <div class="metric-by">From current 3.7/5</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-target">2K+</div>
+      <div class="metric-unit">Facebook followers</div>
+      <div class="metric-by">By June 2026</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-target">90%</div>
+      <div class="metric-unit">Digital fee collection</div>
+      <div class="metric-by">No paper processes</div>
+    </div>
+    <div class="metric-card">
+      <div class="metric-target">25%</div>
+      <div class="metric-unit">Referral enrolments</div>
+      <div class="metric-by">Of all new learners</div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- HARD TRUTHS -->
+<div class="section">
+  <p class="section-eyebrow">Part VI — What this requires</p>
+  <h2 class="section-title">The hard truths</h2>
+
+  <div class="callout warning">
+    <strong>Fix the website before spending a rand on marketing.</strong> Every ad campaign, every social media post, every referral sends parents to the website. Right now that website is actively working against the school. The student counter bug, the financial-survival language, and the LRH-first sequencing are the three things that most urgently need addressing — and none of them require a budget, only decisions and execution.
+  </div>
+
+  <div class="callout info">
+    <strong>Someone must own this every day.</strong> The failure mode for every school turnaround strategy is not the plan — it's the execution gap. A social media account that goes quiet after three posts. An open day that isn't filmed. A referral programme announced once and never followed up. Appoint a person (internal or contracted) whose specific job is to drive this programme. A junior social media coordinator for 20 hours a week costs less than three lost families per year.
+  </div>
+
+  <div class="callout insight">
+    <strong>The IT/AI angle is the biggest opportunity — and the biggest risk.</strong> It is Education Alive's best shot at attracting the upwardly mobile parent segment that most values future-readiness. But "we offer IT" without a functioning computer lab and a credible teacher will generate negative word-of-mouth that undoes everything else. Deliver first. Then market.
+  </div>
+
+  <div class="callout insight">
+    <strong>Brand repair and operational improvement must happen together.</strong> Marketing alone will not reverse the enrolment trend if the learner experience, staff morale, and internal culture remain unchanged. The evidence — student reviews, staff reviews, teacher retention data — suggests the inside needs as much attention as the outside. A parent who enrolls based on a compelling social media presence and then discovers a demoralised school will leave and tell others.
+  </div>
+
+  <p class="prose" style="margin-top:1.5rem;">On the Applied Scholastics connection: the right approach is transparent sequencing, not concealment. Lead with what parents care about — outcomes, affordability, community. Explain the methodology as the school's answer to "how do you deliver this?" Be ready to answer direct questions about L. Ron Hubbard and Scientology clearly and without defensiveness. Parents who self-select in with full information are the most committed families the school will ever have.</p>
+</div>
+
+<footer class="report-footer">
+  Education Alive — Consolidated Turnaround Strategy · Prepared September 2026 · Confidential
+</footer>
+</body>
+</html>
